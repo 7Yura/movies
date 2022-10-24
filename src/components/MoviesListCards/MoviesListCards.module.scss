@@ -1,0 +1,14 @@
+.movie_list_cards {
+  background: var(--background-color);
+}
+
+.list_cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}

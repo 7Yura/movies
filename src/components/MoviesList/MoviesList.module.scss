@@ -1,0 +1,36 @@
+.content {
+  width: 100%;
+  border-left: 1px solid #414141;
+  border-bottom: 1px solid #414141;
+  background: var(--background-color);
+  margin-bottom: 20px;
+  .mov{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,5,136,1) 51%, rgba(2,0,36,1) 100%);
+    display: flex;
+    padding: 5px 5px 5px 5px;
+    color: white;
+    input {
+      margin: 10px 5px ;
+      padding: 0 5px 0 5px
+    }
+    h2{
+      margin: 0 0 0 5px;
+    }
+  }
+}
+
+.head {
+  min-height: 50px;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(133, 134, 199) 51%, rgba(2,0,36,1) 100%);
+
+  h2 {
+    color: white;
+    padding: 10px 0 0 20px;
+  }
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}

@@ -7,7 +7,9 @@ const img = 'https://alexeybychkov.com/blog/help/preloader/';
 const urls = {
     movies: '/discover/movie',
     genres: '/genre/movie/list',
-    movieId: '/movie'
+    movieId: '/movie',
+    // movies_search:'/search/keyword?api_key=cf291f909b66fe22fc9b39f223f0616f'
+    search: `/search/movie`
 }
 
 export {

@@ -1,0 +1,14 @@
+.btn {
+  width: 97%;
+  margin: 3px;
+  background: var(--background-color-btn);
+  font-size: 14px;
+  color: white;
+  line-height: 26px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #561857;
+  }
+}

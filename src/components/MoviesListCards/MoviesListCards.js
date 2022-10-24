@@ -3,15 +3,14 @@ import {useEffect, useState} from "react";
 import {Pagination} from "@mui/material";
 
 import {MoviesListCard} from "../../components";
-import {movieActive} from "../../redux";
-// import style from "./MoviesListCards.module.scss";
+import style from "./MoviesListCards.module.scss";
+import {movieActive} from "../../redux/slices";
 
-
-const MoviesListCards = () => {
+const MoviesListCards = ({filterMovies}) => {
     const [page, setPage] = useState(1);
     const [pageQty] = useState(500);
 
-    const {movies} = useSelector((state) => state.movies);
+    // const {movies} = useSelector((state) => state.movies);
     const {selectedGenre} = useSelector((state) => state.movies);
     const dispatch = useDispatch();
 
@@ -30,14 +29,14 @@ const MoviesListCards = () => {
     };
 
     return (
-        <div >
-            <div >
-                {movies.map((movie, index) => (
+        <div className={style.movie_list_cards}>
+            <div className={style.list_cards}>
+                {filterMovies.map((movie, index) => (
                     <MoviesListCard key={index} movie={movie}/>
                 ))}
             </div>
 
-            <div >
+            <div className={style.pagination}>
                 <Pagination
                     count={pageQty}
                     page={page}

@@ -1,0 +1,51 @@
+.wrap_movies_list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 2px;
+}
+
+.wrap_filter {
+  display: flex;
+  column-gap: 30px;
+  justify-content: space-evenly;
+}
+
+
+p {
+  width: 100%;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 19px;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.wrap_filter > div {
+  display: flex;
+  font-size: 20px;
+}
+
+p > a {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.movies_list_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 16%;
+  margin: 20px 0;
+  padding: 5px;
+  background-color: #2e323b;
+  border-radius: 10px;
+}
+
+
+.movies_list_card:hover {
+  background-color: white;
+  color: black;
+}

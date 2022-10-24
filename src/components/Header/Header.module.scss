@@ -1,0 +1,56 @@
+.header {
+  min-height: 100px;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 5, 136, 1) 51%, rgba(2, 0, 36, 1) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0 12px 10px;
+
+  h1 {
+    color: white;
+    font-size: 48px;
+  }
+
+  span {
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    border-top: 3px dashed white;
+    border-bottom: 3px dashed white;
+    text-transform: uppercase;
+  }
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.btn_group {
+  button {
+    border: none;
+    background: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 12px;
+    outline: none;
+    text-align: center;
+    padding: 0 12px;
+  }
+
+  span {
+    height: 100%;
+    border-left: 1px solid white;
+  }
+}

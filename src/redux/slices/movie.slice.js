@@ -22,6 +22,17 @@ const getCategories = createAsyncThunk(
         }
     }
 );
+const getNameMovies = createAsyncThunk(
+    'movieSlice/getNameMovies',
+    async ({query, page}, {rejectWithValue}) => {
+        try {
+            const {data} = await moviesService.getMovies_Search(query, page );
+            return data;
+        } catch (e) {
+            return rejectWithValue(e.response.data)
+        }
+    }
+);
 
 const getMovieGenres = createAsyncThunk(
     'movieSlice/getMovieGenres',
@@ -78,6 +89,9 @@ const movieSlice = createSlice({
             .addCase(getAllAboutMovie.fulfilled, (state, action) => {
                 state.infoAboutMovie = action.payload
             })
+            .addCase(getNameMovies.fulfilled, (state, action) => {
+                state.movies = action.payload.result
+            })
             .addDefaultCase((state, action) => {
                 const [type] = action.type.split('/').splice(-1);
 
@@ -91,8 +105,8 @@ const movieSlice = createSlice({
 
 const {reducer: movieReducer, actions: {getSelectedGenre, getNumPage}} = movieSlice;
 
-
 const movieActive = {
+    getNameMovies,
     getCategories,
     getMovieGenres,
     getSelectedGenre,
@@ -104,3 +118,9 @@ export {
     movieReducer,
     movieActive
 }
+
+
+
+
+
+

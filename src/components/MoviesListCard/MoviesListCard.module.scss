@@ -1,0 +1,35 @@
+.card {
+  background: var(--background-color);
+  border: var(--border-color);
+  margin: 5px 6px;
+  cursor: pointer;
+
+  &:hover {
+    background: none;
+  }
+}
+
+.link {
+  min-height: 480px;
+  color: var(--color-card);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card__img {
+  text-align: center;
+  img {
+    width: 100%;
+    padding: 1px;
+  }
+
+  p {
+    color: var(--color-card);
+  }
+}
+
+.star_wrap {
+  padding: 0 5px 5px 5px;
+}

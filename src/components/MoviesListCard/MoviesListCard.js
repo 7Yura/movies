@@ -5,6 +5,7 @@ import style from './MoviesListCard.module.scss';
 import {StarsRating} from "../../components";
 import {IMAGE_PATH} from "../../constats";
 
+
 const MoviesListCard = ({movie}) => {
     const {
         id,
@@ -19,6 +20,7 @@ const MoviesListCard = ({movie}) => {
         <div className={style.card}>
             <Link className={style.link} to={`/${id}`}>
                 <div>
+
                     <Badge
                         badgeContent={vote_average.toFixed(1)}
                         color='secondary'>

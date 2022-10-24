@@ -26,14 +26,13 @@ const MoviesList = () => {
                                onChange={(event) => setValue(event.target.value)}/>
 
                     </form>
-                   {/*< FormFilterMovies/>*/}
+
                     {/*<Search/>*/}
                 </div>
                 {/*<Search/>*/}
                 {/*<div className={style.head}>*/}
                 {/*    <h2>Movie online</h2>*/}
                 {/*</div>*/}
-
                 <MoviesListCards filterMovies={filterMovies}/>
             </div>
         </div>

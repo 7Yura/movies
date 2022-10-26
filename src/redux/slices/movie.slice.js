@@ -4,12 +4,26 @@ import {moviesService} from "../../services";
 
 const initialState = {
     categories: [],
+    movie: null,
     movies: [],
+    currentGenres: [],
+    loading: true,
     errors: null,
     selectedGenre: null,
     numberPage: null,
     infoAboutMovie: []
 };
+const getAllMovie = createAsyncThunk(
+    'movieSlice/getAllMovie',
+    async (page, {rejectWithValue}) => {
+        try {
+            const {data} = await moviesService.getAll(page);
+            return data;
+        } catch (e) {
+            rejectWithValue(e.response.data)
+        }
+    }
+);
 
 const getCategories = createAsyncThunk(
     'movieSlice/getCategories',
@@ -22,17 +36,7 @@ const getCategories = createAsyncThunk(
         }
     }
 );
-const getNameMovies = createAsyncThunk(
-    'movieSlice/getNameMovies',
-    async ({query, page}, {rejectWithValue}) => {
-        try {
-            const {data} = await moviesService.getMovies_Search(query, page );
-            return data;
-        } catch (e) {
-            return rejectWithValue(e.response.data)
-        }
-    }
-);
+
 
 const getMovieGenres = createAsyncThunk(
     'movieSlice/getMovieGenres',
@@ -66,6 +70,40 @@ const getAllAboutMovie = createAsyncThunk(
         }
     }
 );
+//  const getSearchMovie = createAsyncThunk(
+//     'moviesSlice/getSearchMovie',
+//     async ({query,page}, {rejectWithValue}) => {
+//         try{
+//             const {data} = await moviesService.getSearchMovie(query,page);
+//             return data;
+//         }
+//         catch(e){
+//             return rejectWithValue(e.response.data)
+//         }
+//     }
+// );
+const searchMovie = createAsyncThunk(
+    'movieSlice/searchMovie',
+    async (arg, {rejectWithValue}) => {
+        try {
+            const {data} = await moviesService.searchMovie(arg);
+            return data;
+        } catch (e) {
+            rejectWithValue(e.response.data)
+        }
+    }
+);
+const searchByGenre = createAsyncThunk(
+    'movieSlice/searchByGenre',
+    async ({currentGenres}, {rejectWithValue}) => {
+        try {
+            const {data} = await moviesService.searchByGenre(currentGenres)
+            return data;
+        } catch (e) {
+            rejectWithValue(e.response.data)
+        }
+    }
+)
 
 const movieSlice = createSlice({
     name: 'movieSlice',
@@ -89,8 +127,22 @@ const movieSlice = createSlice({
             .addCase(getAllAboutMovie.fulfilled, (state, action) => {
                 state.infoAboutMovie = action.payload
             })
-            .addCase(getNameMovies.fulfilled, (state, action) => {
-                state.movies = action.payload.result
+            // .addCase(getNameMovies.fulfilled, (state, action) => {
+            //     state.movies = action.payload.result
+            // })
+            .addCase(searchMovie.fulfilled, (state, action) => {
+                state.movies = action.payload;
+                state.loading = false
+            })
+            .addCase(searchMovie.pending, (state) => {
+                state.loading = true
+            })
+            .addCase(searchByGenre.fulfilled, (state, action) => {
+                state.movies = action.payload;
+                state.loading = false;
+            })
+            .addCase(searchByGenre.pending, (state) => {
+                state.loading = true;
             })
             .addDefaultCase((state, action) => {
                 const [type] = action.type.split('/').splice(-1);
@@ -106,12 +158,14 @@ const movieSlice = createSlice({
 const {reducer: movieReducer, actions: {getSelectedGenre, getNumPage}} = movieSlice;
 
 const movieActive = {
-    getNameMovies,
+    getAllMovie,
     getCategories,
     getMovieGenres,
     getSelectedGenre,
     getNumPage,
-    getAllAboutMovie
+    getAllAboutMovie,
+    searchMovie,
+    searchByGenre
 }
 
 export {

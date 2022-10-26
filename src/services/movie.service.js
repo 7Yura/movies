@@ -37,27 +37,11 @@ const moviesService = {
             language
         }
     }),
-    // getMovies_Search: (page,) => axiosService.get(`${urls.movies_search}${name}`, {
-    //     params: {
-    //         page: page,
-    //         name: name,
-    //         api_key,
-    //         language,
-    //         sort_by: 'popularity.desc',
-    //         include_adult: false,
-    //         include_video: false,
-    //         with_watch_monetization_types: 'flatrate'
-    //     }
-    // })
-    getMovies_Search: (data)=>axiosService.get(`${urls.search}?query=${data}`,{
-    params: {
-        api_key,
-        language
-    }
-})
 
-
+    searchMovie: (movie) => axiosService.get(`${urls.search}?query=${movie}`),
+    getAll: (page) => axiosService.get(`${urls.movies}?page=${page}`),
+    // searchByGenre: (genre) => axiosService.get(`${urls.movies}?&with_genres=${genre}`)
 
 }
 
-export {moviesService};
+export  {moviesService};

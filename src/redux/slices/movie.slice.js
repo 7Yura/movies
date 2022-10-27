@@ -6,6 +6,7 @@ const initialState = {
     categories: [],
     movie: null,
     movies: [],
+
     currentGenres: [],
     loading: true,
     errors: null,

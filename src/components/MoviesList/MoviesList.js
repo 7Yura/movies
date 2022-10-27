@@ -17,6 +17,7 @@ const MoviesList = () => {
     // const filterMovies = movies.filter(movie=>{
     //     return movie.original_title.toLowerCase().includes(value.toLowerCase())
     // })
+
     return (
         <div className={style.content}>
             <div>

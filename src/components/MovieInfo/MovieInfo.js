@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import { useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Badge} from "@mui/material";
+// import {Badge} from "@mui/material";
 
 import style from './MovieInfo.module.scss';
 import {PosterPreview} from "../../components";
@@ -43,14 +43,13 @@ const MovieInfo = () => {
 
             <div className={style.wrap_info}>
 
-                <Badge
-
-                badgeContent = {vote_average}
-                    color='secondary'>
+                {/*<Badge*/}
+                {/*badgeContent = {vote_average.toFixed(1)}*/}
+                {/*    color='secondary'>*/}
                     <div className={style.wrap_info__img}>
                     <img src={poster_path? IMAGE_PATH + poster_path: img} alt={original_title}/>
                     </div>
-                </Badge>
+                {/*</Badge>*/}
                 <div className={style.wrap_info__text}>
                     <div>
                         <h4>Name:</h4>

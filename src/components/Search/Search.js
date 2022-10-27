@@ -30,7 +30,7 @@ const Search = () => {
                    onChange={(e) => setQuery(e.target.value)}
                    value={query}
             />
-            <button onClick={clear}>Clear</button>
+            <button onClick={clear}>  Clear  </button>
 
 
 

@@ -1,8 +1,9 @@
 .card {
   background: var(--background-color);
   border: var(--border-color);
-  margin: 5px 6px;
+  margin: 15px 6px;
   cursor: pointer;
+  width: 90%;
 
   &:hover {
     background: none;
@@ -10,7 +11,7 @@
 }
 
 .link {
-  min-height: 480px;
+  min-height: 450px;
   color: var(--color-card);
   text-decoration: none;
   display: flex;
@@ -32,4 +33,5 @@
 
 .star_wrap {
   padding: 0 5px 5px 5px;
+  padding-left: 10px;
 }

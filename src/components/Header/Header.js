@@ -30,7 +30,9 @@ const Header = () => {
                     <span></span>
                     <button onClick={handleDarkThemeClick}>Dark</button>
                 </div>
-
+                <div><a href="/"><h3>
+                       Home
+                </h3></a></div>
             </div>
         </div>
     )

@@ -8,6 +8,10 @@
   a {
     text-decoration: none;
   }
+  h3{
+    color: white;
+
+  }
 }
 
 .title {
@@ -31,10 +35,15 @@
 }
 
 .wrap {
-  display: flex;
+  //display: flex;
+
   justify-content: center;
   align-items: center;
   margin-right: 40px;
+  h3{
+    margin-left: 25px;
+margin-top: 10px;
+  }
 }
 
 .btn_group {

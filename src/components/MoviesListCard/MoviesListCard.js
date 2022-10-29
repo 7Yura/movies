@@ -1,6 +1,7 @@
 import {Badge} from "@mui/material";
 import {Link} from "react-router-dom";
 // import CornerRibbon from "react-corner-ribbon";
+// import {Badge} from "react-bootstrap/Badge";
 
 import style from './MoviesListCard.module.scss';
 import {StarsRating} from "../../components";
@@ -20,12 +21,14 @@ const MoviesListCard = ({movie}) => {
     } = movie;
     const { categories} = useSelector(state => state.movies)
         const genreMovie = categories.find(value => value.id === genre_ids[0])
-
+    const genreMovie1 = categories.find(value => value.id === genre_ids[1])
+    const genreMovie2 = categories.find(value => value.id === genre_ids[2])
+    const genreMovie3 = categories.find(value => value.id === genre_ids[3])
     return (
         <div className={style.card}>
             <Link className={style.link} to={`/${id}`}>
                 <div>
-                      {/*<Badge/>*/}
+
                     <Badge
                         badgeContent={genreMovie?.name}
 
@@ -34,7 +37,7 @@ const MoviesListCard = ({movie}) => {
                         <div className={style.card__img}>
                             <img src={IMAGE_PATH + poster_path} alt={title}/>
                             <div>
-                                <p>{original_title}</p>
+                                <h3>{original_title}</h3>
                             </div>
                         </div>
                     </Badge>
@@ -54,6 +57,11 @@ const MoviesListCard = ({movie}) => {
                     {/*            </div>*/}
                     {/*    {genreMovie?.name}*/}
                     {/*</CornerRibbon>*/}
+                </div>
+                <div className={style.genres}>
+                    <div className={style.g1}><h4> {genreMovie1?.name}</h4></div>
+                    <div className={style.g1}><h4> {genreMovie2?.name}</h4></div>
+                    <div className={style.g1}><h4> {genreMovie3?.name}</h4></div>
                 </div>
 
                 <div className={style.star_wrap}>

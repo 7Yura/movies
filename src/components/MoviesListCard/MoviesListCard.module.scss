@@ -28,10 +28,19 @@
 
   p {
     color: var(--color-card);
+
   }
 }
 
 .star_wrap {
-  padding: 0 5px 5px 5px;
-  padding-left: 10px;
+  padding: 5px 5px 5px 5px;
+ margin-right: 5px;
+}
+.genres{
+  display: flex;
+ padding-left: 5px;
+  justify-content: space-between
+}
+.g1{
+  color: #b929b9;
 }

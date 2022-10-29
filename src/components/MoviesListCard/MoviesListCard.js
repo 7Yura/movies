@@ -1,12 +1,13 @@
 import {Badge} from "@mui/material";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 // import CornerRibbon from "react-corner-ribbon";
 // import {Badge} from "react-bootstrap/Badge";
 
 import style from './MoviesListCard.module.scss';
 import {StarsRating} from "../../components";
 import {IMAGE_PATH} from "../../constats";
-import {useSelector} from "react-redux";
+
 
 
 const MoviesListCard = ({movie}) => {

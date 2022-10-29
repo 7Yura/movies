@@ -16,6 +16,7 @@ const MovieInfo = () => {
     const dispatch = useDispatch();
     const {infoAboutMovie} = useSelector(state => state.movies);
 
+
     const {
         backdrop_path,
         original_title,
@@ -23,17 +24,15 @@ const MovieInfo = () => {
         tagline,
         poster_path,
         release_date,
-        vote_average
+        genres
     } = infoAboutMovie;
 
     useEffect(() => {
         dispatch(movieActive.getAllAboutMovie(id))
+
     }, [dispatch, id]);
 
-    console.log(infoAboutMovie)
-    console.log(poster_path)
-    console.log(IMAGE_PATH+poster_path)
-    console.log(IMAGE_PATH+backdrop_path)
+    console.log({infoAboutMovie});
 
     return (
         <div className={style.movie_info}>
@@ -54,6 +53,15 @@ const MovieInfo = () => {
                     <div>
                         <h4>Name:</h4>
                         <p>{original_title}</p>
+                    </div>
+                    <div>
+                        <h4>Genres:</h4>
+                        <p> {!genres||genres[0]?.name} </p>
+                        <p>/  {!genres||genres[1]?.name}</p>
+                        <p>/  {!genres||genres[2]?.name}</p>
+                        <p>/  {!genres||genres[3]?.name}</p>
+
+
                     </div>
 
                     <div>

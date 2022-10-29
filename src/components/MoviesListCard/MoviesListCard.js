@@ -20,8 +20,8 @@ const MoviesListCard = ({movie}) => {
         genre_ids,
         title
     } = movie;
-    const { categories} = useSelector(state => state.movies)
-        const genreMovie = categories.find(value => value.id === genre_ids[0])
+    const {categories} = useSelector(state => state.movies)
+    const genreMovie = categories.find(value => value.id === genre_ids[0])
     const genreMovie1 = categories.find(value => value.id === genre_ids[1])
     const genreMovie2 = categories.find(value => value.id === genre_ids[2])
     const genreMovie3 = categories.find(value => value.id === genre_ids[3])

@@ -24,7 +24,8 @@ const MovieInfo = () => {
         tagline,
         poster_path,
         release_date,
-        genres
+        genres,
+        vote_average
     } = infoAboutMovie;
 
     useEffect(() => {
@@ -33,7 +34,10 @@ const MovieInfo = () => {
     }, [dispatch, id]);
 
     console.log({infoAboutMovie});
-
+    const findGenre = (id) => {
+        const genre = !genres||genres?.find(value => value.id === id)
+        return genre?.name;
+    }
     return (
         <div className={style.movie_info}>
             <div className={style.movie_info__title}>
@@ -43,7 +47,7 @@ const MovieInfo = () => {
             <div className={style.wrap_info}>
 
                 {/*<Badge*/}
-                {/*badgeContent = {vote_average.toFixed(1)}*/}
+                {/*badgeContent = {!genres||genres[0]?.name}*/}
                 {/*    color='secondary'>*/}
                     <div className={style.wrap_info__img}>
                     <img src={poster_path? IMAGE_PATH + poster_path: img} alt={original_title}/>
@@ -56,20 +60,25 @@ const MovieInfo = () => {
                     </div>
                     <div>
                         <h4>Genres:</h4>
-                        <p> {!genres||genres[0]?.name} </p>
-                        <p>/  {!genres||genres[1]?.name}</p>
-                        <p>/  {!genres||genres[2]?.name}</p>
-                        <p>/  {!genres||genres[3]?.name}</p>
-
+                        {/*<p> {!genres||genres[0]?.name} </p>*/}
+                        {/*<p>/ {!genres||genres[1]?.name}</p>*/}
+                        {/*<p>/  {!genres||genres[2]?.name}</p>*/}
+                        {/*<p>/  {!genres||genres[3]?.name}</p>*/}
+                        {
+                            infoAboutMovie?.genres?.map(genre => <span key={genre.id}> {findGenre(genre.id)}/ </span>)
+                        }
 
                     </div>
-
+                    <div>
+                        <h4>Rating:</h4>
+                        <p>{vote_average?.toFixed(1)}</p>
+                    </div>
                     <div>
                         <h4>Data:</h4>
                         <p>{release_date}</p>
                     </div>
-
-                    <h4>{tagline}</h4>
+<br/>
+                    <p>{tagline}</p>
                 </div>
             </div>
 
